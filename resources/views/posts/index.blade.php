@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
+        [<a href="/posts/create">投稿画面</a>]
         <div class='posts'>
             @foreach($posts as $post)
             <div class='post'>
