@@ -1,14 +1,5 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Posts</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" href="/css/app.css">
-    </head>
- <body>
+@extends('layouts.app')
+@section('content')
         <h3>book title</h3>
         <h4>{{$post->title}}</h4>
         <h4>review<review>
@@ -16,7 +7,6 @@
        <p class="edit">[<a href="/posts/{{$post->id}}/edit">編集</a>]</p>
       <div class="footer">
           <a href="/">back</a>
-</body>
-</html>
+@endsection
         
     
