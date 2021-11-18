@@ -9,6 +9,10 @@
                     <a href="/posts/{{$post->id}}">{{$post->title}}</a>
                 </h2>
                 <p calss='body'>{{$post->body}}</p>
+                <form action="/posts/{{$post->id}}" name="delete" method="post" style="display:inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">削除</button>
             </div> 
             @endforeach
         </div>
