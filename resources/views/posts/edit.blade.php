@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>book</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    </head>
-    <<body>
+@extends('layouts.app')
+@section('content')
      <h1>edit</h1>
      <form action="/posts/{{$post->id}}" method="POST">
          @csrf
@@ -24,8 +14,7 @@
         </div>
         <input type="submit" value="投稿"/>
     </form>
- </body>
-</html>
+@endsection
                 
         
         

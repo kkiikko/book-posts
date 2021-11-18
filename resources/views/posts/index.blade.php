@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>book</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    </head>
-    <body>
+@extends('layouts.app')
+@section('content')
+        <p>{{Auth::user()->name}}</p>
         [<a href="/posts/create">投稿画面</a>]
         <div class='posts'>
             @foreach($posts as $post)
@@ -25,5 +16,4 @@
         <div class='paginate'>
             {{ $posts->links() }}
         </div>    
-    </body>
-</html>
+@endsection
