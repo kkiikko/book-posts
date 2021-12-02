@@ -6,7 +6,7 @@
             {{Auth::user()->name}}
             @foreach($posts as $post)
             <div class='post'>
-               <small>{{ $post->user->name }}</smalU
+               <small>{{ $post->user->name }}</small>
                 <h2 class='titile'>
                     <a href="/posts/{{$post->id}}">{{$post->title}}</a>
                 </h2>
