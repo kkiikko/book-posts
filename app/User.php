@@ -51,4 +51,18 @@ class User extends Authenticatable
    {
        return $this::with('posts')->find(Auth::id())->posts()->orderBy('updated_at', 'DESC')->paginate($limit_count);
    }
+   
+   
+    public function likedUsers()
+    {
+        return $this->belongsToMany('App\User', 'like_users', 'liked_user_id', 'liking_user_id');
+    }
+
+    
+    public function likingUsers()
+    {
+        return $this->belongsToMany('App\User', 'like_users', 'liking_user_id', 'liked_user_id');
+    }
+
+
 }

@@ -21,6 +21,10 @@ Route::group(['middleware' => 'auth'], function(){
  Route::get('/user', 'UserController@index');
  Route::post('/comments/{post}', 'CommentController@store');
  Route::get('/comments/{post}/create', 'CommentController@create');
+ Route::post('/users/{user}/store', 'LikeUserController@store');
+ Route::post('/users/{user}/destroy', 'LikeUserController@destroy');
+ Route::get('/users/{user}', 'LikeUserController@index');
+
 
 });
 

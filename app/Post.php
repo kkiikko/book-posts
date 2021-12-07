@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {   use SoftDeletes;
-    public function getPaginateByLimit(int $limit_count = 5)
+    public function getPaginateByLimit(int $limit_count = 2)
     {
         // return $this::with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     

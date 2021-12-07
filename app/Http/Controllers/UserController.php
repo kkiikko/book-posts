@@ -10,7 +10,8 @@ class UserController extends Controller
 {
     public function index(User $user)
     {
-        return view('users.index')->with(['own_posts' => $user->getOwnPaginateByLimit()]);
+        return view('users/index')->with(['own_posts' => $user->getOwnPaginateByLimit()]);
     }
+    
 }
 
