@@ -1949,12 +1949,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['userId', 'defaultLiked', 'defaultCount'],
   data: function data() {
     return {
-      followed: false,
-      followCount: 0
+      liked: false,
+      likeCount: 0
     };
   },
   created: function created() {
@@ -1973,7 +1974,7 @@ __webpack_require__.r(__webpack_exports__);
         alert(error);
       });
     },
-    liked: function liked(userId) {
+    unlike: function unlike(userId) {
       var _this2 = this;
 
       var url = "/users/".concat(userId, "/destroy");
@@ -37623,6 +37624,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("span", { staticClass: "float-right" }, [
+    _vm._v("\n  " + _vm._s(this.likeCount) + "\n  "),
     !_vm.liked
       ? _c(
           "button",
@@ -37645,7 +37647,7 @@ var render = function () {
             attrs: { type: "button" },
             on: {
               click: function ($event) {
-                return _vm.liked(_vm.userId)
+                return _vm.unlike(_vm.userId)
               },
             },
           },

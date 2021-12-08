@@ -1,8 +1,9 @@
 
 <template>
     <span class="float-right">
+      {{this.likeCount}}
       <button v-if="!liked" type="button" class="btn-sm shadow-none border border-primary p-2" @click="like(userId)"><i class="mr-1 fas fa-user-plus"></i>いいね</button>
-      <button  v-else type="button" class="btn-sm shadow-none border border-primary p-2 bg-primary text-white" @click="liked(userId)"><i class="mr-1 fas fa-user-check"></i>いいね済</button>
+      <button  v-else type="button" class="btn-sm shadow-none border border-primary p-2 bg-primary text-white" @click="unlike(userId)"><i class="mr-1 fas fa-user-check"></i>いいね済</button>
     </span>
 </template>
 
@@ -11,8 +12,8 @@
         props:['userId', 'defaultLiked', 'defaultCount'],
         data() {
           return{
-              followed: false,
-              followCount: 0,
+              liked: false,
+              likeCount: 0,
           };
         },
         created() {
@@ -33,7 +34,7 @@
               alert(error)
             });
           },
-          liked(userId) {
+          unlike(userId) {
             let url = `/users/${userId}/destroy`
 
             axios.post(url)
