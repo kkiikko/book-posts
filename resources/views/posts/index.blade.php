@@ -2,6 +2,8 @@
 @section('content')
         [<a href="/posts/create">投稿画面</a>]
         [<a href="/user">My Page</a>]
+        [<a href="user/rank">userランキング</a>]
+        [<a href="book">本検索</a>]
         <div class='posts'>
             {{Auth::user()->name}}
          @foreach($posts as $post)
