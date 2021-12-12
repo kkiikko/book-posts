@@ -19,7 +19,8 @@ class Post extends Model
     protected $fillable = [
         'title',
         'body',
-        'user_id'
+        'user_id',
+        'book_id',
         ];
         
     public function user()
@@ -30,5 +31,9 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany('App\Comment');
+    }
+    public function book()
+    {
+        return $this->belongsTo('App\Book');
     }
 }

@@ -9,9 +9,10 @@ class BookController extends Controller
 {
   public function index(Request $request)
     {
+       
         $data = [];
         
-        $items = null;
+        $item = null;
         
         
         if (!empty($request->keyword))
@@ -39,18 +40,29 @@ class BookController extends Controller
             // 書籍情報部分を取得
            $items = $bodyArray['items'];
         //   1つ目の配列を取得
-           $item = $items[0];
+          $item = $items[0];
  
             // レスポンスの中身を見る
             // dd($items);
-        }
-       
-        $data = [
+        
+           $data = [
             'item' => $item,
             'keyword' => $request->keyword,
         ];
         // dd($data);
  
-        return view('books/index', $data);
+        return view('posts/create', $data);
+        }else{
+          
+           $data = [
+            'item' => $item,
+            'keyword' => $request->keyword,
+        ];
+          return view('books/index',$data);
+        }
+       
+        
     }
+    
+    
 }

@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function(){
  Route::post('/users/{user}/destroy', 'LikeUserController@destroy');
  Route::get('/users/{user}', 'LikeUserController@index');
  Route::get('/user/rank', 'UserRankController@index');
- Route::get('/book/', 'BookController@index');
+ Route::get('/book', 'BookController@index');
 });
 
 
