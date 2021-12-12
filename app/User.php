@@ -63,6 +63,18 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\User', 'like_users', 'liking_user_id', 'liked_user_id');
     }
+  
+
+    public function books()
+    {
+        return $this->belongsToMany('App\Book');
+    }
 
 
+     public function getPaginateByLikeLimit(int $limit_count = 2)
+    {
+    //   dd($this::withCount('likedUsers')->get()); 
+      return $this::withCount('likedUsers')->orderBy('liked_users_count', 'DESC')->get();
+         
+    }
 }

@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
-        [<a href="/posts/create">投稿画面</a>]
+    
         [<a href="/user">My Page</a>]
+        [<a href="/user/rank">userランキング</a>]
+        [<a href="/book">投稿</a>]
         <div class='posts'>
             {{Auth::user()->name}}
          @foreach($posts as $post)
