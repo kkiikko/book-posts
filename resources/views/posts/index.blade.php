@@ -17,6 +17,7 @@
                     <a href="/posts/{{$post->id}}">{{$post->title}}</a>
                 </h2>
                 <p calss='body'>{{$post->body}}</p>
+                <img src="{{$post->book->image}}">
             @foreach($post->comments as $comment)
             <div class='comment'>
                 <p>{{$comment->user->name}}</p>

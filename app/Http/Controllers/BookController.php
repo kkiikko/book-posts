@@ -9,6 +9,7 @@ class BookController extends Controller
 {
   public function index(Request $request)
     {
+      
        
         $data = [];
         
@@ -41,17 +42,20 @@ class BookController extends Controller
            $items = $bodyArray['items'];
         //   1つ目の配列を取得
           $item = $items[0];
- 
+         
             // レスポンスの中身を見る
             // dd($items);
-        
+        // dd($item);
+          $volumeInfo = $item['volumeInfo'];
+          $autrors = $volumeInfo['authors'];
+          
+        if((!empty($autrors))){
            $data = [
             'item' => $item,
             'keyword' => $request->keyword,
-        ];
-        // dd($data);
- 
-        return view('posts/create', $data);
+            ];
+          return view('posts/create',$data);
+          
         }else{
           
            $data = [
@@ -61,7 +65,7 @@ class BookController extends Controller
           return view('books/index',$data);
         }
        
-        
+        } 
     }
     
     
