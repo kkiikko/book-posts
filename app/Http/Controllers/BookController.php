@@ -50,7 +50,6 @@ class BookController extends Controller
             'keyword' => $request->keyword,
         ];
         // dd($data);
- 
         return view('posts/create', $data);
         }else{
           
