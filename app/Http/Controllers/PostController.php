@@ -26,18 +26,25 @@ class PostController extends Controller
     {
         $input_book = $request['book'];
         $data = $input_book['title'];
-        $book_title = DB::table(books)->where(title, $data)->exists();
-        if($book_title){
+        $book_title = Book::where('title', $data)->exists();
+        if(!$book_title){
         $book = Book::create([
             'title' => $input_book['title'] ,
             'image' => $input_book['image'] ,
             'author' => $input_book['author'] ,
             'year' => $input_book['date'] ,
-        ]);}
+        ]);
         $input_post = $request['post'];
         $input_post += ['user_id' => $request->user()->id];
         $input_post += ['book_id' => $book->id];
         $post->fill($input_post)->save();
+        return redirect('/posts/' . $post->id);
+        }else{
+        $title =  Book::where('title', $data)->first();
+        $input_post = $request['post'];
+        $input_post += ['user_id' => $request->user()->id];
+        $input_post += ['book_id' => $title->id];
+        $post->fill($input_post)->save();}
         return redirect('/posts/' . $post->id);
          
     }
