@@ -49,8 +49,9 @@ class BookController extends Controller
           $data = [
             'item' => $item,
             'keyword' => $request->keyword,
-            ];
-          return view('posts/create',$data);
+        ];
+        // dd($data);
+        return view('posts/create', $data);
         }else{
            $data = [
             'item' => $item,
