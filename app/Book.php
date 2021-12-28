@@ -17,7 +17,6 @@ class Book extends Model
         'title',
         'author',
         'image',
-        'user_id',
         'year',
         ];
     

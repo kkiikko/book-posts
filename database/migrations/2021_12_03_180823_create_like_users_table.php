@@ -31,5 +31,8 @@ class CreateLikeUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('like_users');
+
+
+        
     }
 }

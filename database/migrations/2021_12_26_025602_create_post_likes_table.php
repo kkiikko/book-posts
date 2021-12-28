@@ -13,12 +13,13 @@ class CreatePostLikesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_book', function (Blueprint $table) {
+        Schema::create('post_likes', function (Blueprint $table) {
+           $table->Increments('id');
            $table->bigInteger('user_id')->unsigned();    
            $table->bigInteger('post_id')->unsigned();    
-           $table->primary(['user_id', 'post_id']);
            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+           $table->timestamps();
         });
     }
 
@@ -30,5 +31,7 @@ class CreatePostLikesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('post_likes');
+        
+        
     }
 }
