@@ -6,10 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-   public function users()
-      {
-         return $this->belongsToMany('App\User');
-      }
  
  
  
@@ -21,7 +17,6 @@ class Book extends Model
         'title',
         'author',
         'image',
-        'user_id',
         'year',
         ];
     

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {   use SoftDeletes;
-    public function getPaginateByLimit(int $limit_count = 2)
+    protected $table = 'posts';
+    public function getPaginateByLimit(int $limit_count = 1)
     {
         // return $this::with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     
@@ -24,6 +25,7 @@ class Post extends Model
         ];
         
     public function user()
+    
     {
         return $this->belongsTo('App\User');
     }
@@ -35,5 +37,9 @@ class Post extends Model
     public function book()
     {
         return $this->belongsTo('App\Book');
+    }
+     public function postlikes()
+    {
+        return $this->hasMany('App\PostLike');
     }
 }

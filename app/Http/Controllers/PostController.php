@@ -13,10 +13,6 @@ class PostController extends Controller
          return view('posts/index')->with(['posts'=>$post->getPaginateByLimit()]);
      }
     
-    public function show(Post $post)
-    {
-        return view('posts/show')->with(['post'=>$post]);
-    }
     public function create()
     {
         return view('posts/create');
@@ -25,6 +21,9 @@ class PostController extends Controller
     public function store(Post $post, PostRequest $request)
     {
         $input_book = $request['book'];
+        $data = $input_book['title'];
+        $book_title = Book::where('title', $data)->exists();
+        if(!$book_title){
         $book = Book::create([
             'title' => $input_book['title'] ,
             'image' => $input_book['image'] ,
@@ -36,7 +35,14 @@ class PostController extends Controller
         $input_post += ['book_id' => $book->id];
         $post->fill($input_post)->save();
         return redirect('/posts/' . $post->id);
-        
+        }else{
+        $title =  Book::where('title', $data)->first();
+        $input_post = $request['post'];
+        $input_post += ['user_id' => $request->user()->id];
+        $input_post += ['book_id' => $title->id];
+        $post->fill($input_post)->save();}
+        return redirect('/posts/' . $post->id);
+         
     }
     
     public function edit(Post $post)

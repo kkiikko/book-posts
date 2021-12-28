@@ -14,7 +14,7 @@ class CreateBooksTable extends Migration
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->Increments('id');
             $table->string('title');
             $table->string('author');
             $table->string('image');
@@ -29,7 +29,7 @@ class CreateBooksTable extends Migration
      * @return void
      */
     public function down()
-    {
+    {  
         Schema::dropIfExists('books');
     }
 }
